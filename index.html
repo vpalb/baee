@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Baee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .heart-beat {
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }    
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.03);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="start-screen" class="fixed inset-0 flex flex-col items-center justify-center bg-white z-50 transition-all duration-1000 fade-in">
+        <div class="text-center px-4">
+            <h1 class="dancing-script text-5xl md:text-7xl font-bold mb-6 text-gray-800">Selamat Ulang Tahun Yaa Cancii</h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-600 max-w-2xl mx-auto">Orang paling penting buat aku &lt;3 </p>
+            
+            <button id="start-btn" class="px-8 py-3 bg-gray-800 text-white rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300 flex items-center gap-2 heart-beat mx-auto">
+                <i class="fas fa-heart"></i>
+                Mulai Yuu
+                <i class="fas fa-heart"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div id="main-menu" class="hidden w-full min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+        <h2 class="dancing-script text-4xl md:text-6xl font-bold mb-12 text-gray-800 text-center">Dipilih Yaa, Sayangku</h2>
+        
+        <img src="bae.jpg" alt="hbd yaa" class="rounded-full w-48 h-48 object-cover shadow-lg mb-8 border-4 border-white">
+
+        <div class="flex flex-col md:flex-row gap-8 mb-16">
+            <div class="menu-option bg-white p-8 rounded-xl shadow-lg text-center cursor-pointer hover:shadow-xl transition-all duration-300 max-w-xs" data-target="messages">
+                <div class="text-5xl mb-4 text-gray-700"><i class="fas fa-envelope-open-text"></i></div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Harapan</h3>
+                <p class="text-gray-600">Kata-kata buat kamu</p>
+            </div>
+            
+            <div class="menu-option bg-white p-8 rounded-xl shadow-lg text-center cursor-pointer hover:shadow-xl transition-all duration-300 max-w-xs" data-target="memories">
+                <div class="text-5xl mb-4 text-gray-700"><i class="fas fa-images"></i></div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Kenangan Kita</h3>
+                <p class="text-gray-600">Dari gue masih cakep sampe kek begini bentukannya</p>
+            </div>
+
+            <div class="menu-option bg-white p-8 rounded-xl shadow-lg text-center cursor-pointer hover:shadow-xl transition-all duration-300 max-w-xs" data-target="video">
+                <div class="text-5xl mb-4 text-gray-700"><i class="fas fa-question"></i></div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Surprise</h3>
+                <p class="text-gray-600">Liatnya terakhir yaa</p>
+            </div>
+        </div>
+        
+        <p class="text-gray-700">Lagu Buat Kamu: BEAUTiFUL - Paul Partohap</p>
+
+        <button id="back-to-home-btn" class="px-6 py-2 bg-gray-200 text-gray-800 rounded-full text-sm font-semibold hover:bg-gray-300 transition-all duration-300 flex items-center gap-2 mt-8">
+            <i class="fas fa-arrow-left"></i>
+            Balik ke menu aja yuk
+        </button>
+    </div>
+    
+    <div id="messages-section" class="hidden w-full min-h-screen bg-gray-100 p-6 md:p-12">
+        <div class="max-w-4xl mx-auto">
+            <button class="back-btn mb-8 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+                Balik ke menu aja yuk
+            </button>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8 md:p-12">
+                    <h2 class="dancing-script text-4xl md:text-5xl font-bold mb-8 text-center text-gray-800">Harapan Untukmu</h2>
+                    
+                    <div class="space-y-8">
+                        <p class="text-gray-700 leading-relaxed text-center">
+                            Aku harap kita berdua selalu bisa tumbuh sama-sama, aku tau kita punya banyak banget bedanya, tapi aku tetep gapernah kepikiran buat pergi dari kamu, aku mau nyiptain kenangan lainnya juga sama kamu. Dan yang paling penting, semoga kita bisa lebih dikuatin lagi, jangan sampe ngerasa ga disayang atau ga dicintain, jujur dari hati aku paling dalem aku gaperna ga sayang atau ga cinta sama kamu, jadiii aku minta tolong yaa buat jangan pergi. Selamat 19 tahun sayang, semoga kamu makin bahagia, rezekinya selalu bertambah, samaa di hubungan ini aku harap banget semoga kita bisa bareng-bareng terus sampe nantinya, pokonya semoga kamu senang yaa hari ini sampe berikutnya harus senangg, lopyuu.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <p class="dancing-script text-3xl text-gray-800">Tolong Yaa. Dari akuu,</p>
+                        <p class="text-xl mt-2 font-semibold text-gray-700">Vallen Ganteng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="memories-section" class="hidden w-full min-h-screen bg-gray-100 p-6">
+        <div class="max-w-6xl mx-auto">
+            <button class="back-btn mb-8 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+                Balik ke menu aja yuk
+            </button>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8">
+                    <h2 class="dancing-script text-4xl md:text-5xl font-bold mb-8 text-center text-gray-800">Eh Sini Deh Balik Lagi ke Awal-Awal</h2>
+                    
+                    <div class="photo-gallery">
+                        <div class="photo-item h-64 bg-gray-200 flex items-center justify-center">
+                            <img src="IMG-20250829-WA0013.jpg" alt="First Date" class="w-full h-full object-cover">
+                            <div class="photo-caption">
+                                <p class="text-sm">Pertama kali ngedate - Emang secantik itu kamu dari awalnya cuma bisa liat jauh</p>
+                                <p class="text-xs opacity-75">Sabtu, 26 Agustus 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-item h-64 bg-gray-200 flex items-center justify-center">
+                            <img src="IMG-20250829-WA0012.jpg" alt="Malam Braga" class="w-full h-full object-cover">
+                            <div class="photo-caption">
+                                <p class="text-sm">Braga - Paling bener ngajak pergi kamu harus jalan-jalan</p>
+                                <p class="text-xs opacity-75">Jumat, 24 Januari 2025</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-item h-64 bg-gray-200 flex items-center justify-center">
+                            <img src="IMG-20250829-WA0016.jpg" alt="Makan Gacoan" class="w-full h-full object-cover">
+                            <div class="photo-caption">
+                                <p class="text-sm">Gacoan - Pulang kerja langsung gacoan, lagi sering-seringnya nih makan gacoan</p>
+                                <p class="text-xs opacity-75">Senin, 4 November 2024</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-item h-64 bg-gray-200 flex items-center justify-center">
+                            <img src="IMG-20250829-WA0004.jpg" alt="Ulang tahun aku" class="w-full h-full object-cover">
+                            <div class="photo-caption">
+                                <p class="text-sm">Ulang tahun aku tuh - Sampe sekarang aku masi suka poni ituu</p>
+                                <p class="text-xs opacity-75">Rabu, 17 Juli 2024</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-item h-64 bg-gray-200 flex items-center justify-center">
+                            <img src="IMG-20250829-WA0005.jpg" alt="Anak" class="w-full h-full object-cover">
+                            <div class="photo-caption">
+                                <p class="text-sm">Foto sama anak - Kira-kira ada rencana mo nambah anak ga nih?</p>
+                                <p class="text-xs opacity-75">Kamis, 28 November 2024</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-item h-64 bg-gray-200 flex items-center justify-center">
+                            <img src="IMG-20250829-WA0002.jpg" alt="Aww" class="w-full h-full object-cover">
+                            <div class="photo-caption">
+                                <p class="text-sm">Adegan dewasa apaa inii - Untungnya kemaren dapet fotonya</p>
+                                <p class="text-xs opacity-75">Selasa, 26 Agustus 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <p class="dancing-script text-3xl text-gray-800">Semoga makin banyak yaa foto-fotonyaa siapa tau bisa dijadiin album online. Sama semoga kita bisa terus bareng-bareng yaaa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="video-section" class="hidden w-full min-h-screen bg-gray-100 p-6 md:p-12">
+        <div class="max-w-4xl mx-auto">
+            <button class="back-btn mb-8 flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors">
+                <i class="fas fa-arrow-left"></i>
+                Balik ke menu aja yuk
+            </button>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden p-8 md:p-12">
+                <h2 class="dancing-script text-4xl md:text-5xl font-bold mb-8 text-center text-gray-800">Cuma Buat Kamu, Tolong Tetap jadi Rahasia Negara</h2>
+                <div class="video-container">
+                    <iframe id="youtube-player" src="https://www.youtube.com/embed/HTKq1h3RowQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="bg-music" loop>
+        <source src="Party.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startScreen = document.getElementById('start-screen');
+            const mainMenu = document.getElementById('main-menu');
+            const messagesSection = document.getElementById('messages-section');
+            const memoriesSection = document.getElementById('memories-section');
+            const videoSection = document.getElementById('video-section');
+            const startBtn = document.getElementById('start-btn');
+            const menuOptions = document.querySelectorAll('.menu-option');
+            const backBtns = document.querySelectorAll('.back-btn');
+            const bgMusic = document.getElementById('bg-music');
+            let isPlaying = false;
+
+            // Start button click handler
+            startBtn.addEventListener('click', function() {
+                startScreen.style.opacity = '0';
+                startScreen.style.pointerEvents = 'none';
+
+                // Langsung putar musik saat tombol start diklik
+                bgMusic.play().catch(e => console.error("Error playing music:", e));
+                isPlaying = true;
+                
+                setTimeout(() => {
+                    startScreen.classList.add('hidden');
+                    mainMenu.classList.remove('hidden');
+                    mainMenu.classList.add('fade-in');
+                }, 1000);
+            });
+            
+            // Menu option click handlers
+            menuOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    mainMenu.classList.add('hidden');
+                    
+                    messagesSection.classList.add('hidden');
+                    memoriesSection.classList.add('hidden');
+                    videoSection.classList.add('hidden');
+                    
+                    if (target === 'messages') {
+                        messagesSection.classList.remove('hidden');
+                        messagesSection.classList.add('fade-in');
+                    } else if (target === 'memories') {
+                        memoriesSection.classList.remove('hidden');
+                        memoriesSection.classList.add('fade-in');
+                    } else if (target === 'video') {
+                        videoSection.classList.remove('hidden');
+                        videoSection.classList.add('fade-in');
+                    }
+                });
+            });
+            
+            // Back button click handlers
+            backBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    messagesSection.classList.add('hidden');
+                    memoriesSection.classList.add('hidden');
+                    videoSection.classList.add('hidden');
+                    mainMenu.classList.remove('hidden');
+                    mainMenu.classList.add('fade-in');
+                });
+            });
+            
+            // Tambahkan event listener untuk tombol back to menu di main menu
+            const backToMenuBtn = document.getElementById('back-to-home-btn');
+            if(backToMenuBtn) {
+                backToMenuBtn.addEventListener('click', function() {
+                    messagesSection.classList.add('hidden');
+                    memoriesSection.classList.add('hidden');
+                    videoSection.classList.add('hidden');
+                    mainMenu.classList.remove('hidden');
+                    mainMenu.classList.add('fade-in');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

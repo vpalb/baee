@@ -1,0 +1,800 @@
+/* style.css - Skema Warna Pink Romantis & Responsif */
+
+/* ========================================= */
+/* CSS Umum untuk semua halaman */
+/* ========================================= */
+html {
+    /* Pastikan scrolling vertikal diizinkan di seluruh dokumen */
+    /* Ini sangat penting agar scroll bisa berfungsi */
+    overflow-y: scroll; 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef1f8; /* Pink sangat muda */
+    color: #4a4a4a; /* Abu-abu tua untuk teks */
+    line-height: 1.6;
+    display: flex; /* Pertahankan ini agar footer tetap di bawah */
+    flex-direction: column; /* Pertahankan ini agar footer tetap di bawah */
+    min-height: 100vh;
+    position: relative; /* Penting untuk animasi latar belakang */
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    /* Pastikan tidak ada overflow: hidden; di sini untuk overflow-y */
+}
+
+header {
+    background-color: #ff6f91; /* Pink romantis */
+    color: white;
+    padding: 2em 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em; /* Ukuran default untuk layar besar */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.container {
+    width: 85%; /* Lebar relatif */
+    max-width: 960px;
+    margin: auto;
+    padding: 2.5em 0;
+    flex-grow: 1; /* Memastikan container mengisi ruang vertikal */
+}
+
+section {
+    background-color: white;
+    padding: 2.5em; /* Padding default */
+    margin-bottom: 2.5em;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+section h2 {
+    color: #ff6f91; /* Pink romantis */
+    text-align: center;
+    margin-bottom: 1.2em;
+    font-size: 2.5em; /* Ukuran default untuk layar besar */
+    font-weight: normal;
+}
+
+section p {
+    font-size: 1.1em; /* Ukuran default untuk layar besar */
+    margin-bottom: 1em;
+}
+
+/* Tombol Kembali (Back Button) */
+.back-button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #f72c72; /* Pink agak gelap */
+    color: white;
+    padding: 0.8em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #e61d67; /* Pink gelap saat hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5em 0;
+    background-color: #ff6f91; /* Pink romantis */
+    color: white;
+    font-size: 0.9em;
+    border-top: 8px solid #f72c72; /* Pink lebih gelap */
+    margin-top: 3em;
+    width: 100%;
+}
+
+
+/* ========================================= */
+/* CSS Khusus Halaman Index (Sapaan Pembuka) */
+/* ========================================= */
+.welcome-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3.5em 3em; /* Padding default */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    width: 90%; /* Lebar relatif */
+    animation: fadeInZoom 1.2s ease-out;
+    position: relative;
+    overflow: hidden;
+    z-index: 2; /* Pastikan di atas animasi latar belakang */
+    margin: auto; /* Untuk centering jika body bukan flex */
+}
+
+@keyframes fadeInZoom {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.welcome-container::before,
+.welcome-container::after {
+    /* Ukuran ikon relatif terhadap font-size kontainer atau vw */
+    font-size: 10em; /* Ukuran default */
+    position: absolute;
+    color: rgba(255, 105, 180, 0.08); /* Hati transparan */
+    z-index: 0;
+}
+.welcome-container::before {
+    content: '💖';
+    top: -20px;
+    left: -20px;
+    transform: rotate(-25deg);
+}
+.welcome-container::after {
+    content: '✨';
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(15deg);
+    color: rgba(255, 255, 0, 0.05); /* Bintang transparan */
+}
+
+.welcome-container h1 {
+    color: #e91e63;
+    font-size: 3.2em; /* Ukuran default */
+    margin-bottom: 0.5em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+p.intro-text {
+    font-size: 1.4em; /* Ukuran default */
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 2.5em;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.start-button {
+    display: inline-block;
+    background-color: #ff6f91;
+    color: white;
+    padding: 1.5em 3em; /* Padding default */
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.6em; /* Ukuran default */
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+}
+.start-button:hover {
+    background-color: #f72c72;
+    transform: translateY(-7px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Animasi Hati Latar Belakang */
+.heart-animation-area {
+    position: fixed; /* Pakai fixed agar selalu di belakang konten */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1; /* Di bawah welcome-container, di atas body */
+}
+
+.animated-heart {
+    position: absolute;
+    font-size: 2em; /* Ukuran hati default */
+    color: rgba(255, 105, 180, 0.7); /* Pink transparan */
+    animation: fallHeart linear infinite;
+    transform: translateY(-100px); /* Mulai dari atas */
+}
+
+@keyframes fallHeart {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+
+/* ========================================= */
+/* CSS Khusus Halaman Main Menu */
+/* ========================================= */
+.main-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 3em 2.5em; /* Padding default */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 90%;
+    animation: fadeInScale 1s ease-out;
+    margin: auto; /* Untuk centering */
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.main-container h1 {
+    color: #e91e63;
+    font-size: 3.8em; /* Ukuran default */
+    margin-bottom: 0.2em;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+p.subtitle {
+    font-size: 1.5em; /* Ukuran default */
+    color: #d81b60;
+    margin-top: 0;
+    margin-bottom: 2em;
+    font-style: italic;
+}
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Selalu satu kolom untuk ponsel, akan berubah di desktop */
+    gap: 1.2em;
+}
+.options-grid a {
+    display: block;
+    background-color: #ff6f91;
+    color: white;
+    padding: 1.2em 2em; /* Padding default */
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.3em; /* Ukuran default */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.options-grid a:hover {
+    background-color: #f72c72;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+img.hero-image {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2.5em;
+    border: 5px solid #ff6f91;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: bounceIn 1.5s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.1); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Overlay Efek "Kartu Terbuka" */
+.content-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98); /* Lebih solid saat terbuka */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+}
+
+.content-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-card {
+    background-color: #ffebf0; /* Pink sangat muda */
+    border: 5px solid #ff6f91; /* Pink romantis */
+    border-radius: 15px;
+    padding: 3em 4em; /* Padding default */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaleIn 0.7s forwards;
+    max-width: 80%; /* Batasi lebar kartu di ponsel */
+}
+
+.content-overlay.active .overlay-card {
+    animation: scaleIn 0.7s forwards;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.overlay-card p {
+    font-size: 1.8em; /* Ukuran default */
+    color: #d81b60;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 105, 180, 0.3);
+    border-top: 4px solid #ff6f91;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* ========================================= */
+/* CSS Khusus Halaman Pesan (Referensi) */
+/* ========================================= */
+.page {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    background-color: #fef1f8;
+    z-index: 1;
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.page h1 {
+    font-size: 2.2rem; /* Ukuran default */
+    margin-bottom: 1rem;
+    color: #e91e63;
+}
+
+.page h2 {
+    font-size: 1.8rem; /* Ukuran default */
+    margin-bottom: 1rem;
+    color: #e91e63;
+}
+
+.highlight {
+    color: #d81b60;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #f72c72;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px; /* Padding default */
+    font-size: 1.2rem; /* Ukuran default */
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #e61d67;
+}
+
+.page img {
+    max-width: 70vw;
+    max-height: 50vh;
+    height: auto; /* Pastikan tinggi ikut menyesuaikan */
+    margin-bottom: 20px;
+}
+
+.letter {
+    white-space: pre-line;
+    font-size: 1.1rem; /* Ukuran default */
+    max-width: 600px;
+    width: 90%; /* Lebar relatif */
+    text-align: left;
+    border-left: 3px solid #f72c72;
+    padding-left: 15px;
+    min-height: 200px;
+    color: #4a4a4a;
+}
+
+.falling {
+    position: fixed;
+    top: -30px;
+    font-size: 24px;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.pink-heart {
+    color: #ff6f91;
+}
+
+.gold-star {
+    color: #ffd700;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* ========================================= */
+/* CSS Khusus Halaman Kenangan (Video/Galeri) */
+/* ========================================= */
+.video-player-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rasio aspek 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #4A3A2F;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 2em;
+}
+.video-player-container video, .video-player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* Style tambahan untuk galeri gambar jika Anda memilih itu */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5em;
+    margin-top: 2em;
+}
+.gallery img {
+    width: 100%;
+    height: 220px; /* Tinggi tetap agar gambar seragam */
+    object-fit: cover; /* Pastikan gambar mengisi kotak tanpa distorsi */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+
+/* ========================================= */
+/* Media Queries (Responsif) */
+/* ========================================= */
+
+/* Untuk layar yang lebih kecil dari 768px (Tablet dan Ponsel) */
+@media (max-width: 768px) {
+    /* Umum */
+    header h1 {
+        font-size: 2em; /* Lebih kecil di perangkat kecil */
+    }
+    section h2 {
+        font-size: 1.8em; /* Lebih kecil */
+    }
+    .container {
+        width: 95%; /* Lebar sedikit lebih besar di perangkat kecil */
+        padding: 1.5em 0;
+    }
+    section {
+        padding: 1.5em; /* Padding lebih kecil */
+        margin-bottom: 1.5em;
+    }
+    section p {
+        font-size: 1em; /* Ukuran font lebih kecil */
+    }
+    .back-button {
+        padding: 0.6em 1.2em;
+        font-size: 0.9em;
+    }
+    footer {
+        padding: 1em 0;
+    }
+
+    /* Index (Sapaan) */
+    .welcome-container {
+        padding: 2em 1.5em; /* Padding lebih kecil */
+        width: 95%; /* Lebih besar untuk ponsel */
+    }
+    .welcome-container h1 {
+        font-size: 2.2em; /* Lebih kecil */
+    }
+    p.intro-text {
+        font-size: 1.1em; /* Lebih kecil */
+        margin-bottom: 1.5em;
+    }
+    .start-button {
+        font-size: 1.3em; /* Lebih kecil */
+        padding: 1.2em 2em;
+    }
+    .welcome-container::before,
+    .welcome-container::after {
+        font-size: 6em; /* Ukuran ikon lebih kecil di ponsel */
+    }
+    .animated-heart {
+        font-size: 1.5em; /* Hati lebih kecil di ponsel */
+    }
+
+
+    /* Main Menu */
+    .main-container {
+        padding: 2em 1.5em; /* Padding lebih kecil */
+        width: 95%; /* Lebih besar untuk ponsel */
+    }
+    .main-container h1 {
+        font-size: 2.5em; /* Lebih kecil */
+    }
+    p.subtitle {
+        font-size: 1.2em; /* Lebih kecil */
+        margin-bottom: 1.5em;
+    }
+    .options-grid {
+        grid-template-columns: 1fr; /* Pastikan satu kolom */
+    }
+    .options-grid a {
+        font-size: 1.1em; /* Lebih kecil */
+        padding: 1em 1.5em;
+    }
+    img.hero-image {
+        width: 90%; /* Sedikit lebih besar */
+        max-width: 300px; /* Batasi agar tidak terlalu besar di tablet */
+    }
+    .overlay-card {
+        padding: 2em 2.5em; /* Padding lebih kecil */
+        font-size: 0.9em; /* Ukuran teks di overlay lebih kecil */
+    }
+    .overlay-card p {
+        font-size: 1.4em; /* Ukuran teks di overlay lebih kecil */
+    }
+
+    /* Pesan (Multi-page style) */
+    .page h1 {
+        font-size: 1.8rem;
+    }
+    .page h2 {
+        font-size: 1.5rem;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .letter {
+        font-size: 1rem;
+        width: 95%; /* Agak lebih lebar untuk ponsel */
+    }
+
+    /* Kenangan (Video/Galeri) */
+    .gallery {
+        grid-template-columns: 1fr; /* Satu kolom untuk galeri di ponsel */
+    }
+    .gallery img {
+        height: 180px; /* Tinggi gambar lebih kecil di ponsel */
+    }
+}
+
+/* Untuk layar yang sangat kecil (misal iPhone 5/SE) */
+@media (max-width: 375px) {
+    /* Umum */
+    header h1 {
+        font-size: 1.8em;
+    }
+    section h2 {
+        font-size: 1.6em;
+    }
+    section p {
+        font-size: 0.9em;
+    }
+    .back-button {
+        padding: 0.5em 1em;
+        font-size: 0.8em;
+    }
+    footer {
+        font-size: 0.8em;
+    }
+
+    /* Index (Sapaan) */
+    .welcome-container {
+        padding: 1.5em 1em;
+    }
+    .welcome-container h1 {
+        font-size: 2em;
+    }
+    p.intro-text {
+        font-size: 1em;
+    }
+    .start-button {
+        font-size: 1.1em;
+        padding: 1em 1.5em;
+    }
+    .welcome-container::before,
+    .welcome-container::after {
+        font-size: 4em; /* Ukuran ikon lebih kecil lagi */
+    }
+    .animated-heart {
+        font-size: 1em; /* Hati lebih kecil lagi */
+    }
+
+    /* Main Menu */
+    .main-container {
+        padding: 1.5em 1em;
+    }
+    .main-container h1 {
+        font-size: 2.2em;
+    }
+    p.subtitle {
+        font-size: 1em;
+    }
+    .options-grid a {
+        font-size: 1em;
+        padding: 0.8em 1em;
+    }
+    img.hero-image {
+        width: 100%;
+        max-width: 250px;
+    }
+    .overlay-card {
+        padding: 1.5em 2em;
+        font-size: 0.8em;
+    }
+    .overlay-card p {
+        font-size: 1.2em;
+    }
+
+
+    /* Pesan */
+    .page h1 {
+        font-size: 1.6rem;
+    }
+    .page h2 {
+        font-size: 1.3rem;
+    }
+    .button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    .letter {
+        font-size: 0.9rem;
+        padding-left: 10px;
+    }
+
+    /* Kenangan */
+    .gallery img {
+        height: 150px;
+    }
+}
+
+/* Untuk layar yang lebih besar dari 768px (Desktop/Monitor) */
+@media (min-width: 769px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr; /* Dua kolom untuk desktop */
+    }
+}
+
+/* Style khusus untuk tombol "Udah belum?" di webfaris.html */
+.webfaris-page .options-grid a:nth-child(3) { /* Target tombol ketiga di grid */
+    grid-column: 1 / -1; /* Membuatnya menempati seluruh lebar grid */
+    text-align: center; /* Memusatkan teks di dalam tombol */
+    /* Anda mungkin ingin menyesuaikan margin atas/bawah agar terlihat pas */
+    margin-top: 20px;
+}
+
+.webfaris-page .options-grid {
+    /* Pastikan grid tetap terpusat jika perlu */
+    justify-content: center;
+}
+
+/* Style untuk panah kembali di halaman penutup */
+.penutup-page .back-arrow {
+    color: #ff6f91;     /* Warna panah (pink romantis) */
+    text-decoration: none; /* Menghilangkan garis bawah */ 
+    transition: transform 0.2s ease; /* Animasi saat di-hover */
+}
+
+
+
+
+/* ========================================= /
+/ Perbaikan Tampilan Tombol di Layar Kecil (Lebih Simetris)  /
+/ ========================================= */
+@media (max-width: 768px) {
+.webfaris-page .main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Gunakan lebar penuh */
+        box-sizing: border-box; /* Pastikan padding dihitung dengan benar */
+        padding: 2em 1.5em; /* Padding atas-bawah 2em, KIRI-KANAN 1.5em */
+    }
+
+.webfaris-page .hero-image {
+    max-width: 80%; /* Lebih responsif */
+    margin-bottom: 1.5em; /* Ruang di bawah gambar */
+}
+
+.webfaris-page h1 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.webfaris-page .subtitle {
+    font-size: 1.1em;
+    color: #777;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.webfaris-page .options-grid {
+    display: flex; /* Ubah menjadi flex container untuk tata letak tombol */
+    flex-direction: column; /* Susun tombol ke bawah */
+    align-items: center; /* Pusatkan tombol secara horizontal */
+    width: 90%; /* Lebar tombol lebih proporsional */
+    gap: 0.8em; /* Jarak antar tombol */
+    margin-bottom: 2em; /* Ruang di bawah tombol-tombol */
+}
+
+.webfaris-page .options-grid a {
+    display: block; /* Membuat link menjadi blok penuh */
+    width: 100%; /* Tombol memenuhi lebar container */
+    padding: 1em;
+    text-align: center;
+    font-size: 1.1em;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff6f91; /* Warna pink yang lebih cerah */
+    transition: background-color 0.3s ease;
+}
+
+.webfaris-page .options-grid a:hover {
+    background-color: #e91e63; /* Efek hover lebih gelap */
+}
+
+.webfaris-page .options-grid a:nth-child(3) {
+    margin-top: 0; /* Hapus margin khusus tombol ketiga */
+}
+
+.webfaris-page footer {
+    text-align: center;
+    padding: 1em 0;
+    color: #fff;
+    font-size: 0.9em;
+}
+}
